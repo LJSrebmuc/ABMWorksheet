@@ -35,7 +35,6 @@ public class Q1 {
 		
 		String[] x = new String[10]; //create array to store results
 		String[] sAr = s1.split("\'");// split original string (edifact message) on last char on each line
-		int count = 0;
 		for(int i = 0, j = 0; i < sAr.length; i++){ //loop through all lines
 			if(sAr[i].contains("LOC")){ // search for lines containing "LOC" 
 				String[] LOC = sAr[i].split("\\+"); // split LOC on "+"
