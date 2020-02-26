@@ -10,6 +10,7 @@ public class Q2 {
 	public static void main(String[] args) {
 
 	      try {
+	    	  //Create a file (inputXML.txt) and link it to the program 
 	         File inputFile = new File("inputXML.txt");
 	         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 	         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -17,41 +18,40 @@ public class Q2 {
 	         doc.getDocumentElement().normalize();
 	         NodeList nList = doc.getElementsByTagName("Reference");
 	         
-	         for (int temp = 0; temp < nList.getLength(); temp++) {
+	         for (int temp = 0; temp < nList.getLength(); temp++) { //Loop through all nodes in XML tree
 	             Node nNode = nList.item(temp);
 	             if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 	                 Element eElement = (Element) nNode;
 	                 
-	                 if(eElement.getAttribute("RefCode").equals("CAR")){
+	                 if(eElement.getAttribute("RefCode").equals("CAR")){ //Check if Reference code is equal to "CAR"
 	                	 System.out.println("RefCode : " 
-	     	                    + eElement.getAttribute("RefCode"));
+	     	                    + eElement.getAttribute("RefCode")); //Print out Reference code
 	                	 System.out.println("RefText : " 
 		                         + eElement
 		                         .getElementsByTagName("RefText")
 		                         .item(0)
-		                         .getTextContent());
-	                 }if(eElement.getAttribute("RefCode").equals("TRV")){
+		                         .getTextContent()); //Print out text in Reference Text
+	                 }else if(eElement.getAttribute("RefCode").equals("TRV")){ //Check if Reference code is equal to "TRV"
 	                	 System.out.println("RefCode : " 
-	     	                    + eElement.getAttribute("RefCode"));
+	     	                    + eElement.getAttribute("RefCode")); //Print out Reference code
 	                	 System.out.println("RefText : " 
 		                         + eElement
 		                         .getElementsByTagName("RefText")
 		                         .item(0)
-		                         .getTextContent());
-	                 }if(eElement.getAttribute("RefCode").equals("MWB")){
+		                         .getTextContent());//Print out text in Reference Text
+	                 }else if(eElement.getAttribute("RefCode").equals("MWB")){ //Check if Reference code is equal to "WMB"
 	                	 System.out.println("RefCode : " 
-	     	                    + eElement.getAttribute("RefCode"));
+	     	                    + eElement.getAttribute("RefCode")); //Print out Reference code
 	                	 System.out.println("RefText : " 
 		                         + eElement
 		                         .getElementsByTagName("RefText")
 		                         .item(0)
-		                         .getTextContent());
-	                 }
-	                 
+		                         .getTextContent());//Print out text in Reference Text
+	                 }	                 
 	             }
 	         }
 	      }catch (Exception e) {
-	          e.printStackTrace();
+	    	  System.out.print(e);
 	      }
 	}
 }
